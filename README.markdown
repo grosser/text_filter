@@ -19,6 +19,8 @@ Example:
       text_filter :summary, :with => [:strip_tags, {:truncate=>5}] #=> on each assign: product.summary = product.summary.strip_tags.truncate(5)
     end
 
+Note: with a multi-key-hash in `:with` order of execution is random (before ruby 1.9), e.g. :truncate=>10, :something_else=>[1,2]
+
 Author
 ======
 [Michael Grosser](http://pragmatig.wordpress.com)  

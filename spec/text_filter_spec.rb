@@ -46,4 +46,10 @@ describe TextFilter do
     @product.summary = '12345678901234567890'
     @product.summary.should == '<p>xxxxxxxxxx</p>'
   end
+
+  #this behavior cannot be overwritten, but just to be on the safe side...
+  it "returns the assigned value" do
+    result = (@product.summary = 'abcd')
+    result.should == 'abcd'
+  end
 end
