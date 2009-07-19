@@ -1,7 +1,19 @@
+#simple method versions for test...
 class String
-  #simple version for test...
   def strip_tags
     gsub(/<.*?>/,'')
+  end
+
+  def simple_format
+    "<p>#{self}</p>"
+  end
+
+  def truncate(length)
+    self[0...length-3]+'...'
+  end
+
+  def replace_by_char(char)
+    char*length
   end
 end
 
@@ -23,4 +35,5 @@ end
 class Product < ActiveRecord::Base
   text_filter :title, :description, :with => :strip_tags
   text_filter :title, :with => [{:truncate=>10}, :simple_format]
+  text_filter :summary, :with => [{:truncate=>10, :replace_by_char=>'x'}, :simple_format]
 end

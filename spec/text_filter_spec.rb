@@ -9,6 +9,7 @@ end
 describe TextFilter do
   before do
     @user = User.new
+    @product = Product.new
   end
 
   it "is called on assign" do
@@ -29,5 +30,20 @@ describe TextFilter do
   it "does nothing with numbers" do
     @user.name = 123
     @user.name.should == 123
+  end
+
+  it "works with multiple fields" do
+    @product.description = '<a>xx</a>'
+    @product.description.should == 'xx'
+  end
+
+  it "works with nested options" do
+    @product.title = '12345678901234567890'
+    @product.title.should == '<p>1234567...</p>'
+  end
+
+  it "works with multiple nested options" do
+    @product.summary = '12345678901234567890'
+    @product.summary.should == '<p>xxxxxxxxxx</p>'
   end
 end
