@@ -42,7 +42,8 @@
 
 module TextFilter
   module ClassMethods
-
+    def text_filter *args
+    end
   end
 end
 ActiveRecord::Base.send(:extend, TextFilter::ClassMethods)

@@ -6,16 +6,17 @@ Problem
 Solution
 ========
 Before asignment apply text filters to the value.
-To use something like strip_tags here you should define it on String see (ActionView helpers on String)[http://pragmatig.wordpress.com/2009/05/30/all-actionview-helpers-on-strings]
+To use something like strip_tags here you should define it on String see [ActionView helpers on String](http://pragmatig.wordpress.com/2009/05/30/all-actionview-helpers-on-strings)
 
 Usage
 =====
- - As Rails plugin  `script/plugin install git://github.com/grosser/textfilter.git`
- - As gem `sudo gem install grosser-textfilter --source http://gems.github.com/`
+ - As Rails plugin  `script/plugin install git://github.com/grosser/text_filter.git`
+ - As gem `sudo gem install grosser-text_filter --source http://gems.github.com/`
 
+Example:
     class Product < ActiveRecord::Base
-      textfilter :title, :strip_tags #=> product.title = product.title.strip_tags
-      textfilter :description, :strip_tags, :truncate=>5 #=> product.title = product.title.strip_tags.truncate(5)
+      text_filter :title, :description, :with => :strip_tags #=> on each assign: product.title = product.title.strip_tags
+      text_filter :summary, :with => [:strip_tags, {:truncate=>5}] #=> on each assign: product.summary = product.summary.strip_tags.truncate(5)
     end
 
 Author
