@@ -10,7 +10,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = project
-    gem.summary = "ActiveRecord/Rails process fields before saving them"
+    gem.summary = "ActiveRecord/Rails filter text fields before assigning them"
     gem.email = "grosser.michael@gmail.com"
     gem.homepage = "http://github.com/grosser/#{project}"
     gem.authors = ["Michael Grosser"]
