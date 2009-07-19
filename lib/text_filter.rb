@@ -42,7 +42,16 @@
 
 module TextFilter
   module ClassMethods
-    def text_filter *args
+    def text_filter(*args)
+      options = args.extract_options![:with]
+      args.each do |attribute|
+        define_method "#{attribute}=" do |value|
+          if value.is_a? String
+            value = value.send(options)
+          end
+          write_attribute attribute, value
+        end
+      end
     end
   end
 end

@@ -1,3 +1,10 @@
+class String
+  #simple version for test...
+  def strip_tags
+    gsub(/<.*?>/,'')
+  end
+end
+
 ActiveRecord::Schema.define(:version => 1) do
   create_table :users do |t|
     t.string :name
