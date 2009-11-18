@@ -44,7 +44,7 @@ describe TextFilter do
 
   it "works with multiple nested options" do
     @product.summary = '12345678901234567890'
-    @product.summary.should == '<p>xxxxxxxxxx</p>'
+    @product.summary.should == '<p>xxxxxxx...</p>'
   end
 
   #this behavior cannot be overwritten, but just to be on the safe side...
