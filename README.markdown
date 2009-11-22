@@ -11,7 +11,7 @@ To use something like strip_tags here you should define it on String see [Action
 Usage
 =====
  - As Rails plugin  `script/plugin install git://github.com/grosser/text_filter.git`
- - As gem `sudo gem install text_filter -s http://gemcutter.org `
+ - As gem `sudo gem install text_filter `
 
 
 Example:
